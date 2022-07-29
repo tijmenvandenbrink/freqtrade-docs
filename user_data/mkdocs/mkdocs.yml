@@ -1,0 +1,23 @@
+site_name: Freqtrade backtesting
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    
+    - toc.integrate
+    - toc.follow
+    - navigation.top
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path:
+        - /Users/tijmen/projects/ft_userdata/user_data/mkdocs/docs/backtests/
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - tables

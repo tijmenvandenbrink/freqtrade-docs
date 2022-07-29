@@ -1,0 +1,54 @@
+---
+title: {{ context.id }}
+description: Detailed results
+hide:
+  - toc
+---
+
+## Parameters
+??? note "{{ context.parameters_file }}"
+
+    ``` py title="{{ context.parameters_file }}" linenums="1"
+    --8<-- "{{ context.id }}/{{ context.parameters_file }}"
+    ```
+
+## Strategy
+??? note "{{ context.strategy_file }}"
+
+    ``` py title="{{ context.strategy_file }}" linenums="1"
+    --8<-- "{{ context.id }}/{{ context.strategy_file }}"
+    ```
+
+
+## Logs
+??? note "{{ context.results_file }}"
+
+    ``` title="{{ context.results_file }}" linenums="1"
+    --8<-- "{{ context.id }}/{{ context.results_file }}"
+    ```
+
+## Results
+
+Result for strategy {{ context.strategy_file }}
+
+{% for title, value in log_result.items() %}
+
+### {{ title|upper }}
+```
+    {% for line in value -%}
+        {{ line }}
+    {%- endfor -%}
+```
+{% endfor %}
+
+## Plot Profit
+
+{% for file in plot_files.plot_profit_files -%}
+    - [{{ file }}]({{ file }})
+{% endfor %}
+
+## Dataframe Plot
+
+{% for file in plot_files.plot_dataframe_files -%}
+    - [{{ file }}]({{ file }})
+{% endfor %}
