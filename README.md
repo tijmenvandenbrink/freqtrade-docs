@@ -58,6 +58,8 @@ I personally just run `mkdocs serve` so any newly generated docs automatically g
 
 ## Show me what it looks like
 
+In the navigation you see all the backtests you kept for reference. The main part shows relevant information like the `parameters.json` and`strategy` that was used and obviously the results (both the log of the backtest run and the actual results.) When generating the markdown the results/log file gets parsed and tries to make up for some nice layout. It's not doing fancy stuff to avoid that it breaks after freqtrade makes some changes to the output of the backtest command. Anyways, have fun.
+
 ![freqtrade-docs](freqtrade-docs.png)
 
 ## Overview of all backtest results
