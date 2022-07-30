@@ -56,6 +56,10 @@ I personally just run `mkdocs serve` so any newly generated docs automatically g
                     2022-07-08_05-28-47 # Backtest results per directory
             templates/ # Here are the markdown templates stored
 
+## Show me what it looks like
+
+![freqtrade-docs](freqtrade-docs.png)
+
 ## Overview of all backtest results
 
 `todo`
