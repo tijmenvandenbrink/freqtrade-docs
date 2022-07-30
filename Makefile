@@ -18,13 +18,11 @@ run-backtest:
 
 plot-profit:
 	@echo "Plotting profit diagram for $(ID)"
-	#docker-compose run --rm freqtrade plot-profit --timerange=$(timerange) --timeframe=$(timeframe) --config=$(config) --export-filename=/freqtrade/user_data/backtest_results/$(LATEST_BACKTEST)
 	docker-compose run --rm freqtrade plot-profit --timerange=$(shell cat $(USER_DATA_DIR)/plot/context-${ID}.txt | grep timerange | sed 's/.*timerange=//g') --timeframe=$(shell cat $(USER_DATA_DIR)/plot/context-${ID}.txt | grep timeframe | sed 's/.*timeframe=//g') --config=$(USER_DATA_DIR)/$(shell cat $(USER_DATA_DIR)/plot/context-${ID}.txt | grep config_file | sed 's/.*config_file=//g') --export-filename=/freqtrade/user_data/backtest_results/$(LATEST_BACKTEST)
 	mv -n $(USER_DATA_DIR)/plot/freqtrade-profit-plot.html $(USER_DATA_DIR)/plot/$(ID)-freqtrade-profit-plot.html
 
 plot-dataframe:
 	@echo "Plotting dataframes for $(ID)"
-	#docker-compose run --rm freqtrade plot-dataframe --timerange $(timerange) --timeframe=$(timeframe) --config=$(config) --export-filename=/freqtrade/user_data/backtest_results/$(LATEST_BACKTEST)
 	docker-compose run --rm freqtrade plot-dataframe --strategy ${STRATEGY_FROM_LATEST_BACKTEST} --timerange=$(shell cat $(USER_DATA_DIR)/plot/context-${ID}.txt | grep timerange | sed 's/.*timerange=//g') --timeframe=$(shell cat $(USER_DATA_DIR)/plot/context-${ID}.txt | grep timeframe | sed 's/.*timeframe=//g') --config=$(USER_DATA_DIR)/$(shell cat $(USER_DATA_DIR)/plot/context-${ID}.txt | grep config_file | sed 's/.*config_file=//g') --export-filename=/freqtrade/user_data/backtest_results/$(LATEST_BACKTEST)
 	for filename in $(USER_DATA_DIR)/plot/freqtrade-plot-*.html; do newfilename=`echo "$${filename}" | sed "s/.html/-${ID}.html/g"`; mv -v $${filename} $${newfilename}; done
 

@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# user_data
+user_data/mkdocs/backtests/
+
+# vscode + mac  stuff
+.vscode/
 .DS_Store
 
 # C extensions

@@ -1,5 +1,32 @@
 # Welcome to Freqtrade backtest docs
 
+Create docs from your backtests to start refining your freqtrade strategies.
+
+I use the following flow:
+
+- Work on a strategy.
+- Run the backtest with `make backtest <parameters here>`.
+- Optionally plot-profit and plot-dataframe which renders all the plots with `make plot-profit` and `make plot-dataframe`.
+- If you like what you see and want to store the results, including all important artifacts (i.e. strategy, parameters and config file), run `make keep`.
+- Generate the docs with `make docs`
+- Repeat, improve your strategy, get rich, buy a lambo, retire early
+
+## Headsup
+
+This is just a hobby, not an expert coder, so please check out the code before you run it so you know what's happening. I chose to use `Makefile` to easily run some commands but it has some quirks and certain complexity so I'm open for suggestions.
+
+## Installation
+
+Create a virtualenv and install the required packages (see requirements.txt).
+
+```
+python3 -m venv ./.env
+pip3 install -r requirements.txt
+```
+## Run mkdocs
+
+I personally just run `mkdocs serve` so any newly generated docs automatically get served, but you could choose to generate it and serve it from somewhere else.
+
 ## Commands
 
 * `make init` - Initializes the mkdocs directories
@@ -30,3 +57,5 @@
             templates/ # Here are the markdown templates stored
 
 ## Overview of all backtest results
+
+`todo`
